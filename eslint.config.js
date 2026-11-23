@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 export default defineConfig(
   { ignores: ['node_modules/', 'dist/', 'coverage/', 'eslint.config.js'] },
   {
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.tsx'],
     extends: [tseslint.configs.strictTypeChecked],
     languageOptions: { parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname } },
     // No comment in a file can switch a rule off.
@@ -28,6 +28,14 @@ export default defineConfig(
     rules: {
       'no-restricted-globals': ['error', 'fetch', 'process', 'console'],
       'no-restricted-imports': ['error', { patterns: ['node:*', './github.ts', './cli.ts', './token.ts'] }],
+    },
+  },
+  {
+    // Screens draw the picture and reach nothing else.
+    files: ['window/src/**'],
+    rules: {
+      'no-restricted-globals': ['error', 'fetch', 'XMLHttpRequest', 'WebSocket', 'EventSource', 'process', 'console', 'localStorage', 'sessionStorage', 'indexedDB'],
+      'no-restricted-imports': ['error', { patterns: ['node:*', 'electron', '**/src/github.ts', '**/src/token.ts', '**/src/cli.ts', '**/src/json.ts'] }],
     },
   },
 );

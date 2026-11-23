@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Atkinson Hyperlegible Next", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+
+  --color-page: var(--c-page);
+  --color-side: var(--c-side);
+  --color-surface: var(--c-surface);
+  --color-sunk: var(--c-sunk);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-mute: var(--c-mute);
+  --color-faint: var(--c-faint);
+  --color-line: var(--c-line);
+  --color-line-2: var(--c-line-2);
+  --color-on: var(--c-on, var(--c-ink)); /* a switch that is on */
+  --color-you: var(--c-you);
+  --color-you-soft: var(--c-you-soft);
+  --color-you-line: var(--c-you-line);
+  --color-ok: var(--c-ok);
+  --color-bad: var(--c-bad);
+  --color-bad-soft: var(--c-bad-soft);
+  --color-warn: var(--c-warn);
+  --color-warn-soft: var(--c-warn-soft);
+}
+
+:root {
+  --c-page: #f4f5f7; --c-side: #eaecf0; --c-surface: #ffffff; --c-sunk: #eef0f3;
+  --c-ink: #14171c; --c-ink-2: #353b45; --c-mute: #5f6773; --c-faint: #939aa5;
+  --c-line: #dcdfe5; --c-line-2: #eaecf0;
+  --c-you: #2259d6; --c-you-soft: #e6eefc; --c-you-line: #b9cdf5;
+  --c-ok: #1d7f4c; --c-bad: #c0352b; --c-bad-soft: #fbe9e7;
+  --c-warn: #8a5a00; --c-warn-soft: #fdf1d8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-page: #121418; --c-side: #0c0d10; --c-surface: #1a1d22; --c-sunk: #22262d;
+    --c-ink: #eceef2; --c-ink-2: #c6cad2; --c-mute: #969ca7; --c-faint: #687079;
+    --c-line: #2b3038; --c-line-2: #23272e;
+    --c-you: #7aa7ff; --c-you-soft: #1b2843; --c-you-line: #2f4675;
+    --c-ok: #55cf8c; --c-bad: #ff7d70; --c-bad-soft: #3a1d1b;
+    --c-warn: #f2b84b; --c-warn-soft: #33270f;
+    color-scheme: dark;
+  }
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--c-page);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* In the base layer so a utility (outline-none on a search box) can override it. */
+@layer base {
+  :focus-visible { outline: 2px solid var(--c-you); outline-offset: 2px; border-radius: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
