@@ -17,4 +17,11 @@ Shows where a software project stands, read from GitHub. `README.md` says what i
 
 ## Run and test
 
-Filled in by the first change that adds code. Keep it to the commands themselves.
+```
+npm ci
+npm start -- <owner>/<repo>
+npm start -- <owner>/<repo> --closed-efforts
+npm run typecheck
+npm run lint
+npm test
+```
