@@ -21,6 +21,7 @@ Shows where a software project stands, read from GitHub. `README.md` says what i
 npm ci
 npm start -- <owner>/<repo>
 npm start -- <owner>/<repo> --closed-efforts
+npm run desktop
 npm run typecheck
 npm run lint
 npm test
